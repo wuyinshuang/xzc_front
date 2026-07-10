@@ -67,7 +67,8 @@ const getLogoTextColor = computed(() => {
   height: 50px;
   line-height: 50px;
   background: v-bind(getLogoBackground);
-  text-align: center;
+  text-align: left;
+  padding-left: 18px;
   overflow: hidden;
 
   & .sidebar-logo-link {
@@ -94,6 +95,9 @@ const getLogoTextColor = computed(() => {
   }
 
   &.collapse {
+    text-align: center;
+    padding-left: 0;
+    
     .sidebar-logo {
       margin-right: 0px;
     }

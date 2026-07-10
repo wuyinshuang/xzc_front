@@ -91,7 +91,7 @@
           :disabled="!inputMessage.trim() || isLoading"
           @click="handleSend"
         >
-          <svg-icon icon-class="arrow-right" />
+          <svg-icon icon-class="send" />
         </el-button>
       </div>
 
@@ -119,10 +119,10 @@ const chatHistory = ref([
 ])
 
 const suggestions = [
-  '介绍一下岳阳楼',
-  '给我讲个笑话',
   '你能干什么？',
-  '1+1等于几'
+  '查客户定价需要哪些信息？',
+  '利率上限是多少？',
+  '帮我输出定价报告'
 ]
 
 const messages = ref([])

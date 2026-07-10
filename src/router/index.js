@@ -84,6 +84,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/price',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'query',
+        component: () => import('@/views/price/query/index'),
+        name: 'PriceQuery',
+        meta: { title: '定价查询信息', icon: 'search' }
+      }
+    ]
+  },
+  {
     path: '/lock',
     component: () => import('@/views/lock'),
     hidden: true,

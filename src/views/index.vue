@@ -17,7 +17,7 @@
             type="primary"
             icon="Cloudy"
             plain
-            @click="goTarget('https://gitee.com/y_project/RuoYi-Vue')"
+            @click="goTarget('https://gitee.com/iceyWu/xzc_front')"
             >访问码云</el-button
           >
           <el-button
@@ -89,8 +89,8 @@
             <p>
               <i class="el-icon-chat-dot-round"></i> 系统作者：段元文（开发）
             </p>
-            <p style="padding-left:96px;">吴银双（开发）</p>
-            <p style="padding-left:96px;">尹彬（业务）</p>
+            <p style="padding-left:60px;">吴银双（开发）</p>
+            <p style="padding-left:60px;">尹彬（业务）</p>
             <p>
               <i class="el-icon-money"></i> 团队理念：<a
                 href="javascript:;"
