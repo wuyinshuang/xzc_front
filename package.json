@@ -1,8 +1,8 @@
 {
   "name": "ruoyi",
   "version": "3.9.2",
-  "description": "若依管理系统",
-  "author": "若依",
+  "description": "鑫智策定价系统",
+  "author": "鑫智策",
   "license": "MIT",
   "type": "module",
   "scripts": {

@@ -71,6 +71,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/ai',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'chat',
+        component: () => import('@/views/ai/index'),
+        name: 'AiChat',
+        meta: { title: 'AI对话', icon: 'chat-dot-round' }
+      }
+    ]
+  },
+  {
     path: '/lock',
     component: () => import('@/views/lock'),
     hidden: true,
