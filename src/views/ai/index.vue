@@ -162,7 +162,31 @@ async function sendMessage(message) {
 
   try {
     const response = await sendChatMessage(message)
-    messages.value.push({ role: 'assistant', content: response.data || response.message || '暂无回复' })
+    const data = response.data
+    let content = ''
+    if (data && typeof data === 'object') {
+      const parts = []
+      if (data.intent) {
+        parts.push(`**意图识别**：${data.intent}`)
+      }
+      if (data.productType) {
+        parts.push(`**产品类型**：${data.productType}`)
+      }
+      if (data.fewshotExamples && data.fewshotExamples.length > 0) {
+        parts.push('**推荐场景**：')
+        data.fewshotExamples.forEach((item, index) => {
+          parts.push(`${index + 1}. ${item.sceneName}`)
+        })
+      }
+      if (parts.length > 0) {
+        content = parts.join('\n\n')
+      } else {
+        content = JSON.stringify(data, null, 2)
+      }
+    } else {
+      content = data || '暂无回复'
+    }
+    messages.value.push({ role: 'assistant', content: content })
 
     const currentChat = chatHistory.value[currentChatIndex.value]
     currentChat.messages = [...messages.value]

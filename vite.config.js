@@ -56,6 +56,12 @@ export default defineConfig(({ mode, command }) => {
          '^/v3/api-docs/(.*)': {
           target: baseUrl,
           changeOrigin: true,
+        },
+        // xzc abtest proxy
+        '/xzc-api': {
+          target: 'http://47.101.153.130:10066',
+          changeOrigin: true,
+          rewrite: (p) => p.replace(/^\/xzc-api/, '')
         }
       }
     },

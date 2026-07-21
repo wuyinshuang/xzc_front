@@ -1,25 +1,23 @@
-import request from '@/utils/request'
+import axios from 'axios'
+
+const aiService = axios.create({
+  timeout: 60000
+})
 
 export function sendChatMessage(message) {
-  return request({
-    url: '/ai/chat',
-    method: 'post',
-    data: {
-      message
+  return aiService.post('/xzc-api/xzc/api/admin/ai/chat', {
+    input: message
+  }, {
+    headers: {
+      'Content-Type': 'application/json'
     }
   })
 }
 
 export function getChatHistory() {
-  return request({
-    url: '/ai/chat/history',
-    method: 'get'
-  })
+  return axios.get('/ai/chat/history')
 }
 
 export function deleteChatHistory(chatId) {
-  return request({
-    url: '/ai/chat/history/' + chatId,
-    method: 'delete'
-  })
+  return axios.delete('/ai/chat/history/' + chatId)
 }
