@@ -1,7 +1,8 @@
 import axios from 'axios'
 
-const BASE_URL_RESULTS = '/xzc-api/xzc/api/admin/backtest/results'
-const BASE_URL_ADJUSTMENTS = '/xzc-api/xzc/api/admin/backtest'
+const XZC_API = '/xzc'
+const BASE_URL_RESULTS = `${XZC_API}/api/admin/backtest/results`
+const BASE_URL_ADJUSTMENTS = `${XZC_API}/api/admin/backtest`
 
 const xzcService = axios.create({
   timeout: 10000

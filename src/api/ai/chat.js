@@ -5,7 +5,7 @@ const aiService = axios.create({
 })
 
 export function sendChatMessage(message) {
-  return aiService.post('/xzc-api/xzc/api/admin/ai/chat', {
+  return aiService.post('/xzc/api/admin/ai/chat', {
     input: message
   }, {
     headers: {
