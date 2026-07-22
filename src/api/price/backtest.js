@@ -5,7 +5,10 @@ const BASE_URL_RESULTS = `${XZC_API}/api/admin/backtest/results`
 const BASE_URL_ADJUSTMENTS = `${XZC_API}/api/admin/backtest`
 
 const xzcService = axios.create({
-  timeout: 10000
+  timeout: 10000,
+  validateStatus: function (status) {
+    return status >= 200 && status < 500
+  }
 })
 
 export function listBacktestResults(query) {
@@ -14,6 +17,10 @@ export function listBacktestResults(query) {
 
 export function getBacktestResult(validationId) {
   return xzcService.get(`${BASE_URL_RESULTS}/${validationId}`).then(res => res.data)
+}
+
+export function triggerBacktestValidate(data) {
+  return xzcService.post(`${BASE_URL_ADJUSTMENTS}/validate`, data).then(res => res.data)
 }
 
 export function listAdjustments(query) {

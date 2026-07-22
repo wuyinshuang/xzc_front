@@ -10,14 +10,9 @@
       <el-form-item>
         <el-button type="primary" icon="Search" @click="handleQuery">查询</el-button>
         <el-button icon="Refresh" @click="resetQuery">重置</el-button>
+        <el-button type="primary" plain icon="Plus" @click="handleAdd">创建 ABtest 实验</el-button>
       </el-form-item>
     </el-form>
-
-    <el-row :gutter="10" class="mb8">
-      <el-col :span="1.5">
-        <el-button type="primary" plain icon="Plus" @click="handleAdd">创建 ABtest 实验</el-button>
-      </el-col>
-    </el-row>
 
     <el-table v-loading="loading" :data="abtestList" border style="width: 100%">
       <el-table-column label="实验ID" align="center" prop="experimentId" min-width="160" />
@@ -32,10 +27,14 @@
       <el-table-column label="对照组策略" align="center" prop="controlStrategy" min-width="180" />
       <el-table-column label="实验组策略" align="center" prop="experimentStrategy" min-width="180" />
       <el-table-column label="开始时间" align="center" prop="startTime" min-width="180" />
-      <el-table-column label="操作" align="center" width="180" fixed="right" class-name="small-padding fixed-width">
+      <el-table-column label="操作" align="center" width="280" fixed="right" class-name="small-padding fixed-width">
         <template #default="scope">
-          <el-button link type="primary" icon="View" @click="handleDetail(scope.row)">详情</el-button>
-          <el-button link type="warning" icon="VideoPause" @click="handlePause(scope.row)" :disabled="scope.row.status !== 'RUNNING'">暂停</el-button>
+          <div style="white-space: nowrap;">
+            <el-button link type="primary" icon="View" @click="handleDetail(scope.row)">效果</el-button>
+            <el-button link type="success" icon="VideoPlay" @click="handleStart(scope.row)" :disabled="scope.row.status !== 'CREATED' && scope.row.status !== 'PAUSED'">启动</el-button>
+            <el-button link type="warning" icon="VideoPause" @click="handlePause(scope.row)" :disabled="scope.row.status !== 'RUNNING'">暂停</el-button>
+            <el-button link type="danger" icon="CircleClose" @click="handleTerminate(scope.row)" :disabled="scope.row.status === 'COMPLETED' || scope.row.status === 'TERMINATED'">终止</el-button>
+          </div>
         </template>
       </el-table-column>
     </el-table>
@@ -176,7 +175,7 @@
   </div>
 </template>
 <script setup name="Abtest">
-import { listAbtest, getAbtestMetrics, addAbtest, pauseAbtest } from "@/api/price/abtest"
+import { listAbtest, getAbtestMetrics, addAbtest, pauseAbtest, startAbtest, terminateAbtest } from "@/api/price/abtest"
 
 const { proxy } = getCurrentInstance()
 const queryRef = ref()
@@ -226,7 +225,13 @@ function getList() {
     params.status = queryParams.value.status
   }
   listAbtest(params).then(response => {
-    abtestList.value = Array.isArray(response) ? response : []
+    if (Array.isArray(response)) {
+      abtestList.value = response
+    } else if (response && Array.isArray(response.list)) {
+      abtestList.value = response.list
+    } else {
+      abtestList.value = []
+    }
     loading.value = false
   }).catch(() => {
     loading.value = false
@@ -280,6 +285,24 @@ function handlePause(row) {
     return pauseAbtest(row.experimentId)
   }).then(() => {
     proxy.$modal.msgSuccess("暂停成功")
+    getList()
+  }).catch(() => {})
+}
+
+function handleStart(row) {
+  proxy.$modal.confirm('确认要启动实验"' + row.experimentName + '"吗?').then(() => {
+    return startAbtest(row.experimentId)
+  }).then(() => {
+    proxy.$modal.msgSuccess("启动成功")
+    getList()
+  }).catch(() => {})
+}
+
+function handleTerminate(row) {
+  proxy.$modal.confirm('确认要终止实验"' + row.experimentName + '"吗?终止后无法恢复!').then(() => {
+    return terminateAbtest(row.experimentId)
+  }).then(() => {
+    proxy.$modal.msgSuccess("终止成功")
     getList()
   }).catch(() => {})
 }

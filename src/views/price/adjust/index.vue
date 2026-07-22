@@ -161,7 +161,13 @@ function getList() {
     params.status = queryParams.value.status
   }
   listAdjustments(params).then(response => {
-    adjustmentList.value = Array.isArray(response) ? response : []
+    if (Array.isArray(response)) {
+      adjustmentList.value = response
+    } else if (response && Array.isArray(response.list)) {
+      adjustmentList.value = response.list
+    } else {
+      adjustmentList.value = []
+    }
     loading.value = false
   }).catch(() => {
     loading.value = false
