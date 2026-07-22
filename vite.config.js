@@ -60,7 +60,33 @@ export default defineConfig(({ mode, command }) => {
         // xzc abtest proxy
         '/xzc': {
           target: 'http://47.101.153.130:10066',
-          changeOrigin: true
+          changeOrigin: true,
+          configure: (proxy, options) => {
+            proxy.on('proxyRes', (proxyRes, req, res) => {
+              if (req.url.includes('/chat/stream')) {
+                delete proxyRes.headers['content-length']
+                delete proxyRes.headers['content-encoding']
+                proxyRes.headers['cache-control'] = 'no-cache, no-transform'
+                proxyRes.headers['connection'] = 'keep-alive'
+                proxyRes.headers['x-accel-buffering'] = 'no'
+                res.flushHeaders()
+              }
+            })
+            proxy.on('proxyReq', (proxyReq, req, res) => {
+              if (req.url.includes('/chat/stream')) {
+                proxyReq.setHeader('Accept', 'text/event-stream')
+                proxyReq.setHeader('Cache-Control', 'no-cache, no-transform')
+                proxyReq.setHeader('Connection', 'keep-alive')
+                proxyReq.removeHeader('Accept-Encoding')
+              }
+            })
+            proxy.on('error', (err, req, res) => {
+              if (req.url.includes('/chat/stream') && !res.headersSent) {
+                res.writeHead(500, { 'Content-Type': 'text/plain' })
+                res.end('Stream error')
+              }
+            })
+          }
         }
       }
     },

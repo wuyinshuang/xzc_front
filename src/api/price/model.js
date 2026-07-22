@@ -1,13 +1,4 @@
-import axios from 'axios'
-
-const XZC_API = '/xzc'
-
-const xzcService = axios.create({
-  timeout: 10000,
-  validateStatus: function (status) {
-    return status >= 200 && status < 500
-  }
-})
+import { XZC_API, xzcService } from '../xzc'
 
 export function listModels(query) {
   return xzcService.get(`${XZC_API}/api/admin/models`, { params: query }).then(res => res.data)

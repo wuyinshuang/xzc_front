@@ -1,14 +1,6 @@
-import axios from 'axios'
+import { XZC_API, xzcService } from '../xzc'
 
-const XZC_API = '/xzc'
 const BASE_URL = `${XZC_API}/api/admin/abtest`
-
-const xzcService = axios.create({
-  timeout: 10000,
-  validateStatus: function (status) {
-    return status >= 200 && status < 500
-  }
-})
 
 export function listAbtest(query) {
   return xzcService.get(BASE_URL, { params: query }).then(res => res.data)

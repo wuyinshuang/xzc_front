@@ -71,6 +71,19 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/about',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/about/index'),
+        name: 'About',
+        meta: { title: '关于系统', icon: 'info' }
+      },
+    ]
+  },
+  {
     path: '/ai',
     component: Layout,
     hidden: true,
