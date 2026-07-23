@@ -70,20 +70,6 @@
             <el-icon v-else :size="20" color="#67c23a"><Cpu /></el-icon>
           </div>
           <div class="message-content">
-            <div v-if="message.intent" class="intent-info">
-              <el-tag size="small" type="primary" effect="plain">意图：{{ message.intent }}</el-tag>
-            </div>
-            <div v-if="message.tools && message.tools.length > 0" class="tool-logs">
-              <div v-for="(tool, tIdx) in message.tools" :key="tIdx" class="tool-log-item">
-                <el-icon size="12" :color="getToolColor(tool)">
-                  <CircleCheckFilled v-if="tool.status === 'success'" />
-                  <CircleCloseFilled v-else-if="tool.status === 'error' || tool.status === 'failed'" />
-                  <Loading v-else />
-                </el-icon>
-                <span class="tool-name">{{ tool.toolName }}</span>
-                <span v-if="tool.durationMs" class="tool-duration">{{ tool.durationMs }}ms</span>
-              </div>
-            </div>
             <div v-if="message.content" class="message-text" v-html="formatMessage(message.content)"></div>
             <div v-else-if="message.role === 'assistant' && (isLoading || isStreaming)" class="loading-text">
               <span class="loading-dot"></span>
@@ -125,7 +111,7 @@
 <script setup name="AiChat">
 import { ref, nextTick, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
-import { Plus, Delete, ChatDotRound, User, Cpu, Promotion, CircleCheckFilled, CircleCloseFilled, Loading } from '@element-plus/icons-vue'
+import { Plus, Delete, ChatDotRound, User, Cpu, Promotion } from '@element-plus/icons-vue'
 import { listChatSessions, getChatHistory, deleteChatSession, sendChatMessageSync, sendChatMessageStream } from '@/api/ai/chat'
 
 const chatContent = ref(null)
@@ -151,12 +137,6 @@ const suggestions = [
   '查询风控档位',
   '为自雇人士批量定价'
 ]
-
-function getToolColor(tool) {
-  if (tool.status === 'success') return '#67c23a'
-  if (tool.status === 'error' || tool.status === 'failed') return '#f56c6c'
-  return '#e6a23c'
-}
 
 function formatLastMessage(text) {
   if (!text) return '新对话'
@@ -642,38 +622,6 @@ onUnmounted(() => {
       color: #409eff;
       border-color: #b3d8ff;
     }
-  }
-}
-
-.intent-info {
-  margin-bottom: 8px;
-}
-
-.tool-logs {
-  margin-bottom: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.tool-log-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: #606266;
-  background: #f5f7fa;
-  padding: 4px 8px;
-  border-radius: 4px;
-  width: fit-content;
-
-  .tool-name {
-    font-family: 'Consolas', 'Monaco', monospace;
-  }
-
-  .tool-duration {
-    color: #909399;
-    margin-left: 4px;
   }
 }
 

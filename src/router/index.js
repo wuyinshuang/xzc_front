@@ -66,7 +66,7 @@ export const constantRoutes = [
         path: '/index',
         component: () => import('@/views/index'),
         name: 'Index',
-        meta: { title: '首页', icon: 'dashboard', affix: true }
+        meta: { title: '仪表盘首页', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -77,7 +77,7 @@ export const constantRoutes = [
     children: [
       {
         path: 'index',
-        component: () => import('@/views/about/index'),
+        component: () => import('@/views/about/introduction/index'),
         name: 'About',
         meta: { title: '关于系统', icon: 'info' }
       },
@@ -106,6 +106,56 @@ export const constantRoutes = [
         component: () => import('@/views/price/query/index'),
         name: 'PriceQuery',
         meta: { title: '定价查询信息', icon: 'search' }
+      }
+    ]
+  },
+  {
+    path: '/info',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'strategy',
+        component: () => import('@/views/info/strategy/index'),
+        name: 'StrategySimulate',
+        meta: { title: '策略模拟查询', icon: 'search' }
+      },
+      {
+        path: 'query',
+        component: () => import('@/views/info/query/index'),
+        name: 'InfoQuery',
+        meta: { title: '营销报告查询', icon: 'document' }
+      },
+      {
+        path: 'cust',
+        component: () => import('@/views/info/cust/index'),
+        name: 'InfoCust',
+        meta: { title: '客户报告查询', icon: 'user' }
+      },
+      {
+        path: 'market',
+        component: () => import('@/views/info/market/index'),
+        name: 'InfoMarket',
+        meta: { title: '营销报告查询', icon: 'document' }
+      },
+      {
+        path: 'risk',
+        component: () => import('@/views/info/risk/index'),
+        name: 'InfoRisk',
+        meta: { title: '风控档位查询', icon: 'warning' }
+      }
+    ]
+  },
+  {
+    path: '/custom',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'summary',
+        component: () => import('@/views/custom/summary/index'),
+        name: 'CustomSummary',
+        meta: { title: '客户统计摘要', icon: 'chart' }
       }
     ]
   },

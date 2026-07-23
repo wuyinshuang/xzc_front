@@ -14,22 +14,30 @@
           <el-tag type="danger">&yen;免费开源</el-tag>
         </p>
         <p>
+         <el-button
+            type="primary"
+            icon="Cloudy"
+            plain
+            @click="goTarget('https://gitee.com/iceyWu/xzc_front')"
+            >后管（前端）码云</el-button
+          >
           <el-button
             type="primary"
             icon="Cloudy"
             plain
             @click="goTarget('https://gitee.com/iceyWu/xzc_front')"
-            >访问码云</el-button
+            >后管（后端）码云</el-button
           >
           <el-button
-            icon="HomeFilled"
+            type="primary"
+            icon="Cloudy"
             plain
-            @click="goTarget('https://www.boncfc.com/')"
-            >访问主页</el-button
+            @click="goTarget('https://gitee.com/iceyWu/xzc_front')"
+            >模型服务码云</el-button
           >
         </p>
       </el-col>
-
+       
       <el-col :sm="24" :lg="12" style="padding-left: 50px">
         <el-row>
           <el-col :span="12">
@@ -75,10 +83,10 @@
           </template>
           <div class="body">
             <p>
-              <i class="el-icon-s-promotion"></i> 公司官网：<el-link
-                href="https://www.boncfc.com/"
+              <i class="el-icon-s-promotion"></i> 作品演示：<el-link
+                href="https://www.?.com/"
                 target="_blank"
-                >https://www.boncfc.com/</el-link
+                >https://www.?.com/</el-link
               >
             </p>
             <p>
@@ -127,7 +135,7 @@
             </div>
           </template>
           <el-collapse accordion>
-            <el-collapse-item title="v3.1.0 - 2026-07-09">
+            <el-collapse-item title="v3.1.0 - 2026-07-23">
               <ol>
                 <li>接入后端AI对话接口</li>
                 <li>接入后端生成报告信息展示</li>
@@ -136,7 +144,7 @@
                 <li>其他细节优化</li>
               </ol>
             </el-collapse-item>
-            <el-collapse-item title="v3.0.0 - 2026-06-26">
+            <el-collapse-item title="v3.0.0 - 2026-07-11">
               <ol>
                 <li>新增lighntGBN基础利率定价模型</li>
                 <li>新增ε-greedy策略探索利润空间</li>
@@ -145,7 +153,7 @@
                 <li>其他细节优化</li>
               </ol>
             </el-collapse-item>
-            <el-collapse-item title="v2.1.1 - 2026-06-18">
+            <el-collapse-item title="v2.1.1 - 2026-07-02">
               <ol>
                 <li>更新17个客户特征</li>
                 <li>利率浮动增加向下区间</li>

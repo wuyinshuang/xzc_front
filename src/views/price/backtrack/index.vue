@@ -4,15 +4,13 @@
       <el-form-item label="模型版本" prop="modelVersion">
         <el-input v-model="queryParams.modelVersion" placeholder="请输入模型版本" clearable :style="{width: '200px'}" @keyup.enter="handleQuery" />
       </el-form-item>
-      <el-form-item label="验证日期" prop="dateRange">
+      <el-form-item label="验证日期" prop="validationDate">
         <el-date-picker
-          v-model="queryParams.dateRange"
-          type="daterange"
+          v-model="queryParams.validationDate"
+          type="date"
           value-format="YYYY-MM-DD"
-          range-separator="-"
-          start-placeholder="开始日期"
-          end-placeholder="结束日期"
-          :style="{width: '280px'}"
+          placeholder="请选择验证日期"
+          :style="{width: '200px'}"
         />
       </el-form-item>
       <el-form-item>
@@ -251,7 +249,7 @@ const loading = ref(false)
 const backtestList = ref([])
 const queryParams = ref({
   modelVersion: undefined,
-  dateRange: []
+  validationDate: undefined
 })
 
 const detailOpen = ref(false)
@@ -273,12 +271,11 @@ const triggerRules = {
 function getList() {
   loading.value = true
   const params = {}
-  if (queryParams.value.modelVersion) {
-    params.modelVersion = queryParams.value.modelVersion
+  if (queryParams.value.modelVersion && queryParams.value.modelVersion.trim()) {
+    params.modelVersion = queryParams.value.modelVersion.trim()
   }
-  if (queryParams.value.dateRange && queryParams.value.dateRange.length === 2) {
-    params.startDate = queryParams.value.dateRange[0]
-    params.endDate = queryParams.value.dateRange[1]
+  if (queryParams.value.validationDate) {
+    params.validationDate = queryParams.value.validationDate
   }
   listBacktestResults(params).then(response => {
     let list = []
@@ -304,7 +301,7 @@ function handleQuery() {
 
 function resetQuery() {
   proxy.resetForm("queryRef")
-  queryParams.value.dateRange = []
+  queryParams.value.validationDate = undefined
   handleQuery()
 }
 
@@ -325,9 +322,7 @@ function handleTrigger() {
     startDate: '',
     endDate: ''
   }
-  triggerDateRange.value = queryParams.value.dateRange && queryParams.value.dateRange.length === 2
-    ? [...queryParams.value.dateRange]
-    : []
+  triggerDateRange.value = []
   triggerOpen.value = true
 }
 

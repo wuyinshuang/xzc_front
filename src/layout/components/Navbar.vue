@@ -40,7 +40,7 @@
 
       <el-dropdown @command="handleCommand" class="avatar-container right-menu-item hover-effect" trigger="hover">
         <div class="avatar-wrapper">
-          <img :src="userStore.avatar" class="user-avatar" />
+          <img :src="userStore.avatar" class="user-avatar" @error="onAvatarError" />
           <span class="user-nickname"> {{ userStore.nickName }} </span>
         </div>
         <template #dropdown>
@@ -81,6 +81,7 @@ import useUserStore from '@/store/modules/user'
 import useLockStore from '@/store/modules/lock'
 import useSettingsStore from '@/store/modules/settings'
 import HeaderNotice from './HeaderNotice'
+import defAva from '@/assets/images/profile.jpg'
 
 const route = useRoute()
 const router = useRouter()
@@ -130,6 +131,10 @@ function lockScreen() {
   const currentPath = route.fullPath
   lockStore.lockScreen(currentPath)
   router.push('/lock')
+}
+
+const onAvatarError = (e) => {
+  e.target.src = defAva
 }
 
 async function toggleTheme(event) {
