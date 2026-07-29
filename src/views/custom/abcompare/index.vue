@@ -100,7 +100,7 @@
 </template>
 
 <script setup name="AbCompare">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage } from 'element-plus'
 import { abtestSplit } from '@/api/custom/abcompare'
 
@@ -123,9 +123,13 @@ const rules = {
     { required: true, message: '请输入实验组比例', trigger: 'blur' }
   ],
   customerIds: [
-    { required: true, type: 'array', message: '请输入至少一个客户ID', trigger: 'change' }
+    { required: true, type: 'array', message: '请输入至少一个客户ID', trigger: ['blur', 'change'] }
   ]
 }
+
+watch(customerIdsText, () => {
+  form.customerIds = parseCustomerIds()
+})
 
 const totalCount = computed(() => {
   if (!result.value) return 0

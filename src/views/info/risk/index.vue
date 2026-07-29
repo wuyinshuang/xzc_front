@@ -7,10 +7,10 @@
         </div>
       </template>
 
-      <el-form :model="form" ref="formRef" label-width="120px">
+      <el-form label-width="120px">
         <el-row :gutter="20">
           <el-col :span="24">
-            <el-form-item label="客户ID列表" prop="customerIdsText" required>
+            <el-form-item label="客户ID列表" required>
               <el-input
                 v-model="customerIdsText"
                 type="textarea"
@@ -84,12 +84,11 @@
 </template>
 
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { ElMessage } from 'element-plus'
 import { Search, Document, DataAnalysis } from '@element-plus/icons-vue'
 import { queryRiskTier } from '@/api/query/risk'
 
-const formRef = ref()
 const loading = ref(false)
 const resultList = ref([])
 const customerIdsText = ref('')
