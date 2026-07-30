@@ -304,7 +304,7 @@ function validateCustomerId() {
 function goToReport() {
   if (!validateCustomerId()) return
   router.push({
-    path: '/custom/report',
+    path: '/info/report',
     query: {
       customerId: form.customerId.trim(),
       loanAmount: form.loanAmount,

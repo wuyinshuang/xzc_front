@@ -147,13 +147,13 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/custom',
+    path: '/info',
     component: Layout,
     hidden: true,
     children: [
       {
         path: 'summary',
-        component: () => import('@/views/custom/summary/index'),
+        component: () => import('@/views/info/summary/index'),
         name: 'CustomSummary',
         meta: { title: '客户统计摘要', icon: 'chart' }
       }

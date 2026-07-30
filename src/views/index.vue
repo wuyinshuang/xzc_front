@@ -188,7 +188,7 @@
             <span class="section-title">快捷入口</span>
           </template>
           <div class="shortcut-buttons">
-            <div class="shortcut-item" @click="goTo('/custom/calculate')">
+            <div class="shortcut-item" @click="goTo('/info/calculate')">
               <div class="shortcut-icon pricing-bg">
                 <el-icon :size="28"><Money /></el-icon>
               </div>
@@ -319,7 +319,7 @@ import { useRouter } from 'vue-router'
 import { Money, Document, Cpu, DataAnalysis, Goods, DataLine, Histogram, Setting, Box, Search, User, ArrowRight, UserFilled } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { getPricingSummary, getReportSummary, getModelStatus, getAbtestSummary } from '@/api/dashboard'
-import { listCustomers } from '@/api/custom/customer'
+import { listCustomers } from '@/api/info/customer'
 
 const router = useRouter()
 
@@ -461,7 +461,7 @@ function goToCustomerPricing(customerId) {
   if (customerId) {
     sessionStorage.setItem('dashboard_customer_id', customerId)
   }
-  router.push('/custom/calculate')
+  router.push('/info/calculate')
 }
 
 function handleRowClick(row) {

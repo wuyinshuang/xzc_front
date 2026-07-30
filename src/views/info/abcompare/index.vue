@@ -102,7 +102,7 @@
 <script setup name="AbCompare">
 import { ref, reactive, computed, watch } from 'vue'
 import { ElMessage } from 'element-plus'
-import { abtestSplit } from '@/api/custom/abcompare'
+import { abtestSplit } from '@/api/info/abcompare'
 
 const formRef = ref(null)
 const loading = ref(false)
