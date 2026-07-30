@@ -363,6 +363,9 @@ function submitForm() {
           value: formData.value.paramValue,
           description: formData.value.description
         }
+        if (formData.value.defaultValue !== undefined && formData.value.defaultValue !== null && formData.value.defaultValue !== '') {
+          data.defaultValue = formData.value.defaultValue
+        }
         updatePricingParam(formData.value.paramKey, data).then(response => {
           submitLoading.value = false
           if (response.message) {
