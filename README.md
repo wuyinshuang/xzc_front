@@ -1,8 +1,8 @@
 <p align="center">
 	<img alt="logo" src="https://oscimg.oschina.net/oscnet/up-d3d0a9303e11d522a06cd263f3079027715.png">
 </p>
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">RuoYi v3.9.2</h1>
-<h4 align="center">基于SpringBoot+Vue3前后端分离的Java快速开发框架</h4>
+<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">鑫智策定价系统 v3.9.2</h1>
+<h4 align="center">信贷产品智能定价决策系统 - 基于 SpringBoot + Vue3 前后端分离架构</h4>
 <p align="center">
 	<a href="https://gitee.com/y_project/RuoYi-Vue/stargazers"><img src="https://gitee.com/y_project/RuoYi-Vue/badge/star.svg?theme=dark"></a>
 	<a href="https://gitee.com/y_project/RuoYi-Vue"><img src="https://img.shields.io/badge/RuoYi-v3.9.2-brightgreen.svg"></a>
@@ -11,13 +11,69 @@
 
 ## 平台简介
 
-* 本仓库为前端技术栈 [Vue3](https://v3.cn.vuejs.org) + [Element Plus](https://element-plus.org/zh-CN) + [Vite](https://cn.vitejs.dev) 版本。
-* 配套后端代码仓库地址[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) 或 [RuoYi-Vue-fast](https://gitcode.com/yangzongzhuan/RuoYi-Vue-fast) 版本。
-* 阿里云折扣场：[点我进入](http://aly.ruoyi.vip)，腾讯云秒杀场：[点我进入](http://txy.ruoyi.vip)&nbsp;&nbsp;
+* 本系统是基于 RuoYi-Vue3 框架二次开发的 **鑫智策定价系统**，专注于信贷产品的智能定价决策。
+* 前端技术栈：[Vue3](https://v3.cn.vuejs.org) + [Element Plus](https://element-plus.org/zh-CN) + [Vite](https://cn.vitejs.dev) + [Pinia](https://pinia.vuejs.org) + [ECharts](https://echarts.apache.org/)。
+* 配套后端接口地址：`http://47.101.153.130:10066/xzc`（定价系统API）
 
-# 版本对比
+## 核心功能
 
-RuoYi-Vue 前端项目的三个主要演进版本，方便你直观对比其技术栈差异（并行开发维护）。
+### 定价决策模块
+1. **仪表盘首页**：定价可视化大屏，实时展示核心定价指标、业务分布、模型状态等
+2. **新产品设计定价**：客群筛选、方案生成，支持多维度定价参数配置
+3. **定价查询信息**：查询历史定价方案详情
+4. **定价参数管理**：管理定价模型参数配置
+5. **定价模型管理**：管理定价模型版本和状态
+
+### 定价分析模块
+1. **AB测试管理**：创建、启动、暂停、终止AB实验，查看实验指标
+2. **回溯验证**：历史数据回溯测试，验证定价模型效果
+3. **策略模拟**：模拟不同定价策略的收益和风险
+4. **四情景压力测试**：基准/乐观/悲观/极端情景下的净收益率分析
+
+### 营销与客户分析
+1. **客户报告查询**：客户画像、分布统计
+2. **营销报告查询**：营销效果分析
+3. **客户统计摘要**：客户数据汇总统计
+4. **风控档位查询**：风险等级分布查询
+
+### 系统管理模块
+1. **用户管理**：系统用户配置、角色权限分配
+2. **角色管理**：角色菜单权限、数据权限配置
+3. **菜单管理**：系统菜单、操作权限、按钮权限
+4. **部门管理**：组织架构配置，树结构展现
+5. **字典管理**：系统固定数据维护
+6. **参数管理**：系统动态参数配置
+7. **通知公告**：系统公告发布
+
+### 系统监控模块
+1. **在线用户**：活跃用户状态监控
+2. **操作日志**：系统操作日志记录与查询
+3. **登录日志**：登录日志记录与异常查询
+4. **服务监控**：CPU、内存、磁盘等资源监控
+5. **缓存监控**：缓存信息查询与命令统计
+6. **定时任务**：任务调度与执行日志
+
+### 智能辅助
+1. **AI对话**：集成AI助手，提供智能问答支持
+2. **代码生成**：前后端代码自动生成
+3. **在线构建器**：可视化表单设计
+
+## 技术架构
+
+### 前端技术栈
+| 技术 | 版本 | 说明 |
+| :--- | :--- | :--- |
+| Vue | 3.5.26 | 渐进式JavaScript框架 |
+| Element Plus | 2.13.1 | 企业级Vue3组件库 |
+| Vite | 6.4.1 | 下一代前端构建工具 |
+| Pinia | 3.0.4 | Vue状态管理库 |
+| Vue Router | 4.6.4 | Vue路由管理 |
+| ECharts | 5.6.0 | 数据可视化图表库 |
+| Axios | 1.13.2 | HTTP客户端 |
+| Sass | 1.97.2 | CSS预处理器 |
+
+### 版本对比
+RuoYi-Vue 前端项目的三个主要演进版本对比：
 
 | 项目名称      | **RuoYi-Vue** | **RuoYi-Vue3** | **RuoYi-Vue3-TypeScript**   |
 | :---          | :---          | :---           | :---                        |
@@ -27,96 +83,174 @@ RuoYi-Vue 前端项目的三个主要演进版本，方便你直观对比其技�
 | **UI 组件库** | Element UI   | Element Plus   | Element Plus                |
 | **状态管理**  | Vuex         | Pinia          | Pinia                       |
 | **路由管理**  | Vue Router 3 | Vue Router 4   | Vue Router 4                |
-| **核心特点**  | 1. 技术栈经典稳定<br>2. 社区资料丰富<br>3. 当前维护重心已转移 | 1. 现代前端技术栈<br>2. 开发体验与性能更优<br>3. 官方主推的活跃版本 | 1. 类型加持，减少沟通成本<br>2. 开发时有提示，效率更高<br>3. 多人协作企业级开发项目 |
-| **仓库地址**  | [RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) | [RuoYi-Vue3](https://gitcode.com/yangzongzhuan/RuoYi-Vue3) | [RuoYi-Vue3-TypeScript](https://gitcode.com/yangzongzhuan/RuoYi-Vue3/tree/typescript) |
+| **核心特点**  | 技术栈经典稳定<br>社区资料丰富 | 现代前端技术栈<br>开发体验与性能更优 | 类型加持<br>多人协作更规范 |
 
-## 前端运行
+## 快速开始
+
+### 环境要求
+- Node.js >= 16.x
+- npm >= 8.x 或 yarn >= 1.22
+
+### 安装与运行
 
 ```bash
-# 克隆项目
-git clone https://github.com/yangzongzhuan/RuoYi-Vue3.git
+# 1. 克隆项目
+git clone <repository-url>
 
-# 进入项目目录
+# 2. 进入项目目录
 cd RuoYi-Vue3
 
-# 安装依赖
+# 3. 安装依赖（推荐使用国内镜像）
 yarn --registry=https://registry.npmmirror.com
 
-# 启动服务
+# 4. 启动开发服务
 yarn dev
 
-# 构建测试环境 yarn build:stage
-# 构建生产环境 yarn build:prod
-# 前端访问地址 http://localhost:80
+# 5. 构建测试环境
+yarn build:stage
+
+# 6. 构建生产环境
+yarn build:prod
+
+# 7. 预览生产构建
+yarn preview
 ```
 
-## 内置功能
+### 配置说明
 
-1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
-2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
-3.  岗位管理：配置系统用户所属担任职务。
-4.  菜单管理：配置系统菜单，操作权限，按钮权限标识等。
-5.  角色管理：角色菜单权限分配、设置角色按机构进行数据范围权限划分。
-6.  字典管理：对系统中经常使用的一些较为固定的数据进行维护。
-7.  参数管理：对系统动态配置常用参数。
-8.  通知公告：系统通知公告信息发布维护。
-9.  操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
-10. 登录日志：系统登录日志记录查询包含登录异常。
-11. 在线用户：当前系统中活跃用户状态监控。
-12. 定时任务：在线（添加、修改、删除)任务调度包含执行结果日志。
-13. 代码生成：前后端代码的生成（java、html、xml、sql）支持CRUD下载 。
-14. 系统接口：根据业务代码自动生成相关的api接口文档。
-15. 服务监控：监视当前系统CPU、内存、磁盘、堆栈等相关信息。
-16. 缓存监控：对系统的缓存信息查询，命令统计等。
-17. 在线构建器：拖动表单元素生成相应的HTML代码。
-18. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
+#### 环境变量
+- `.env.development`：开发环境配置
+  - `VITE_APP_TITLE`：系统标题（默认：鑫智策定价系统）
+  - `VITE_APP_BASE_API`：若依后端API前缀（默认：`/dev-api`）
+  - `VITE_APP_XZC_API`：定价系统API前缀（默认：`/xzc`）
+
+#### Vite代理配置
+开发环境通过 Vite 代理转发请求：
+- `/dev-api` → `http://localhost:8080`（若依后端）
+- `/xzc` → `http://47.101.153.130:10066`（定价系统API）
+- 端口：`8082`
+
+### 部署说明
+
+#### 生产环境构建
+```bash
+yarn build:prod
+```
+
+#### Nginx配置示例
+```nginx
+server {
+    listen 8082;
+    server_name localhost;
+    
+    # 前端静态文件
+    location / {
+        root /path/to/dist;
+        index index.html;
+        try_files $uri $uri/ /index.html;
+    }
+    
+    # 若依后端API代理
+    location /dev-api/ {
+        proxy_pass http://localhost:8080/;
+    }
+    
+    # 定价系统API代理
+    location /xzc/ {
+        proxy_pass http://47.101.153.130:10066/;
+    }
+}
+```
+
+## 项目结构
+
+```
+RuoYi-Vue3/
+├── src/
+│   ├── api/                    # API接口
+│   │   ├── ai/                # AI对话接口
+│   │   ├── custom/            # 自定义业务接口
+│   │   ├── info/              # 信息查询接口
+│   │   ├── monitor/           # 监控接口
+│   │   ├── price/             # 定价系统接口
+│   │   ├── system/            # 系统管理接口
+│   │   └── xzc.js             # 定价系统axios实例
+│   ├── components/            # 公共组件
+│   ├── layout/                # 布局组件
+│   ├── router/                # 路由配置
+│   ├── store/                 # Pinia状态管理
+│   ├── utils/                 # 工具函数
+│   └── views/                 # 页面视图
+│       ├── about/             # 关于页面
+│       ├── ai/                # AI对话页面
+│       ├── info/              # 信息查询页面
+│       ├── monitor/           # 监控页面
+│       ├── price/             # 定价系统页面
+│       ├── system/            # 系统管理页面
+│       ├── tool/              # 工具页面
+│       └── index.vue          # 仪表盘首页
+├── public/                     # 静态资源
+├── vite/                       # Vite插件配置
+├── .env.development           # 开发环境变量
+├── .env.production            # 生产环境变量
+├── vite.config.js             # Vite配置
+└── package.json               # 项目配置
+```
+
+## API接口说明
+
+### 定价系统API（/xzc）
+基于 RESTful 风格，主要接口包括：
+
+| 模块 | 接口路径 | 说明 |
+| :--- | :--- | :--- |
+| 产品设计 | `/api/pricing/product-design` | 生成产品设计方案 |
+| AB测试 | `/api/admin/abtest` | 创建/查询/管理AB实验 |
+| 回溯验证 | `/api/admin/backtest/validate` | 触发回溯验证 |
+| 定价调整 | `/api/admin/backtest/adjustments` | 查询/应用/回滚定价调整 |
+
+### 若依系统API（/dev-api）
+标准若依后台管理接口，详见官方文档。
+
+## 开发指南
+
+### 代码规范
+- 组件命名：PascalCase
+- 事件命名：camelCase
+- 常量命名：UPPER_SNAKE_CASE
+- 样式使用 scoped 避免污染
+
+### 新增页面
+1. 在 `src/views/` 下创建页面组件
+2. 在 `src/api/` 下创建对应API文件
+3. 在路由配置中添加页面路由（或通过后台菜单管理动态添加）
+
+### 新增API
+1. 在对应模块的 `src/api/` 文件中添加接口方法
+2. 定价系统API使用 `xzcService`（来自 `src/api/xzc.js`）
+3. 若依系统API使用 `request`（来自 `@/utils/request`）
 
 ## 在线体验
 
-- admin/admin123  
-- 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。
+- 演示地址：`http://localhost:8082`
+- 默认账号：`admin` / `admin123`
 
-演示地址：http://vue.ruoyi.vip  
-文档地址：http://doc.ruoyi.vip
+## 常见问题
 
-## 演示图
+### Q: 如何切换定价系统API地址？
+修改 `.env.development` 中的 `VITE_APP_XZC_API` 和 `vite.config.js` 中的代理配置。
 
-<table>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/cd1f90be5f2684f4560c9519c0f2a232ee8.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/1cbcf0e6f257c7d3a063c0e3f2ff989e4b3.jpg"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8074972883b5ba0622e13246738ebba237a.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-9f88719cdfca9af2e58b352a20e23d43b12.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-39bf2584ec3a529b0d5a3b70d15c9b37646.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-936ec82d1f4872e1bc980927654b6007307.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-b2d62ceb95d2dd9b3fbe157bb70d26001e9.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d67451d308b7a79ad6819723396f7c3d77a.png"/></td>
-    </tr>	 
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/5e8c387724954459291aafd5eb52b456f53.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/644e78da53c2e92a95dfda4f76e6d117c4b.jpg"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8370a0d02977eebf6dbf854c8450293c937.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-49003ed83f60f633e7153609a53a2b644f7.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d4fe726319ece268d4746602c39cffc0621.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-c195234bbcd30be6927f037a6755e6ab69c.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-5e4daac0bb59612c5038448acbcef235e3a.png"/></td>
-    </tr>
-</table>
+### Q: 如何解决跨域问题？
+开发环境已通过 Vite 代理解决跨域。生产环境需在 Nginx 中配置反向代理。
 
+### Q: 定价接口返回数据如何处理？
+定价系统API可能返回多层包装结构，前端已做兼容处理。如遇问题请查看浏览器控制台日志。
 
-## 鑫智策定价系统交流群
+## 开源协议
 
-QQ群： [![加入QQ群](https://img.shields.io/badge/已满-937441-blue.svg)](https://jq.qq.com/?_wv=1027&k=5bVB1og) [![加入QQ群](https://img.shields.io/badge/已满-887144332-blue.svg)](https://jq.qq.com/?_wv=1027&k=5eiA4DH) [![加入QQ群](https://img.shields.io/badge/已满-180251782-blue.svg)](https://jq.qq.com/?_wv=1027&k=5AxMKlC) [![加入QQ群](https://img.shields.io/badge/已满-104180207-blue.svg)](https://jq.qq.com/?_wv=1027&k=51G72yr) [![加入QQ群](https://img.shields.io/badge/已满-186866453-blue.svg)](https://jq.qq.com/?_wv=1027&k=VvjN2nvu) [![加入QQ群](https://img.shields.io/badge/已满-201396349-blue.svg)](https://jq.qq.com/?_wv=1027&k=5vYAqA05) [![加入QQ群](https://img.shields.io/badge/已满-101456076-blue.svg)](https://jq.qq.com/?_wv=1027&k=kOIINEb5) [![加入QQ群](https://img.shields.io/badge/已满-101539465-blue.svg)](https://jq.qq.com/?_wv=1027&k=UKtX5jhs) [![加入QQ群](https://img.shields.io/badge/已满-264312783-blue.svg)](https://jq.qq.com/?_wv=1027&k=EI9an8lJ) [![加入QQ群](https://img.shields.io/badge/已满-167385320-blue.svg)](https://jq.qq.com/?_wv=1027&k=SWCtLnMz) [![加入QQ群](https://img.shields.io/badge/已满-104748341-blue.svg)](https://jq.qq.com/?_wv=1027&k=96Dkdq0k) [![加入QQ群](https://img.shields.io/badge/已满-160110482-blue.svg)](https://jq.qq.com/?_wv=1027&k=0fsNiYZt) [![加入QQ群](https://img.shields.io/badge/已满-170801498-blue.svg)](https://jq.qq.com/?_wv=1027&k=7xw4xUG1) [![加入QQ群](https://img.shields.io/badge/已满-108482800-blue.svg)](https://jq.qq.com/?_wv=1027&k=eCx8eyoJ) [![加入QQ群](https://img.shields.io/badge/已满-101046199-blue.svg)](https://jq.qq.com/?_wv=1027&k=SpyH2875) [![加入QQ群](https://img.shields.io/badge/已满-136919097-blue.svg)](https://jq.qq.com/?_wv=1027&k=tKEt51dz) [![加入QQ群](https://img.shields.io/badge/已满-143961921-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vBbSb0ztbBgVtn3kJS-Q4HUNYwip89G&authKey=8irq5PhutrZmWIvsUsklBxhj57l%2F1nOZqjzigkXZVoZE451GG4JHPOqW7AW6cf0T&noverify=0&group_code=143961921) [![加入QQ群](https://img.shields.io/badge/已满-174951577-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ZFAPAbp09S2ltvwrJzp7wGlbopsc0rwi&authKey=HB2cxpxP2yspk%2Bo3WKTBfktRCccVkU26cgi5B16u0KcAYrVu7sBaE7XSEqmMdFQp&noverify=0&group_code=174951577) [![加入QQ群](https://img.shields.io/badge/已满-161281055-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Fn2aF5IHpwsy8j6VlalNJK6qbwFLFHat&authKey=uyIT%2B97x2AXj3odyXpsSpVaPMC%2Bidw0LxG5MAtEqlrcBcWJUA%2FeS43rsF1Tg7IRJ&noverify=0&group_code=161281055) [![加入QQ群](https://img.shields.io/badge/已满-138988063-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XIzkm_mV2xTsUtFxo63bmicYoDBA6Ifm&authKey=dDW%2F4qsmw3x9govoZY9w%2FoWAoC4wbHqGal%2BbqLzoS6VBarU8EBptIgPKN%2FviyC8j&noverify=0&group_code=138988063) [![加入QQ群](https://img.shields.io/badge/已满-151450850-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DkugnCg68PevlycJSKSwjhFqfIgrWWwR&authKey=pR1Pa5lPIeGF%2FFtIk6d%2FGB5qFi0EdvyErtpQXULzo03zbhopBHLWcuqdpwY241R%2F&noverify=0&group_code=151450850) [![加入QQ群](https://img.shields.io/badge/已满-224622315-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=F58bgRa-Dp-rsQJThiJqIYv8t4-lWfXh&authKey=UmUs4CVG5OPA1whvsa4uSespOvyd8%2FAr9olEGaWAfdLmfKQk%2FVBp2YU3u2xXXt76&noverify=0&group_code=224622315) [![加入QQ群](https://img.shields.io/badge/已满-287842588-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Nxb2EQ5qozWa218Wbs7zgBnjLSNk_tVT&authKey=obBKXj6SBKgrFTJZx0AqQnIYbNOvBB2kmgwWvGhzxR67RoRr84%2Bus5OadzMcdJl5&noverify=0&group_code=287842588) [![加入QQ群](https://img.shields.io/badge/已满-187944233-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=numtK1M_I4eVd2Gvg8qtbuL8JgX42qNh&authKey=giV9XWMaFZTY%2FqPlmWbkB9g3fi0Ev5CwEtT9Tgei0oUlFFCQLDp4ozWRiVIzubIm&noverify=0&group_code=187944233) [![加入QQ群](https://img.shields.io/badge/已满-228578329-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=G6r5KGCaa3pqdbUSXNIgYloyb8e0_L0D&authKey=4w8tF1eGW7%2FedWn%2FHAypQksdrML%2BDHolQSx7094Agm7Luakj9EbfPnSTxSi2T1LQ&noverify=0&group_code=228578329) [![加入QQ群](https://img.shields.io/badge/已满-191164766-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=GsOo-OLz53J8y_9TPoO6XXSGNRTgbFxA&authKey=R7Uy%2Feq%2BZsoKNqHvRKhiXpypW7DAogoWapOawUGHokJSBIBIre2%2FoiAZeZBSLuBc&noverify=0&group_code=191164766) [![加入QQ群](https://img.shields.io/badge/已满-174569686-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PmYavuzsOthVqfdAPbo4uAeIbu7Ttjgc&authKey=p52l8%2FXa4PS1JcEmS3VccKSwOPJUZ1ZfQ69MEKzbrooNUljRtlKjvsXf04bxNp3G&noverify=0&group_code=174569686) [![加入QQ群](https://img.shields.io/badge/127358632-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=M9y5NjAl44lAL_Vh2crmEehZU_PMU6KS&authKey=ZSDz8hEREWSaPuxQV3gEwqGIaGjfRNnkB4rJjf0IvXhrSUGSGwQFmBA%2Boe8HFxyl&noverify=0&group_code=127358632) 点击按钮入群。
+本项目基于 [MIT License](https://opensource.org/licenses/MIT) 开源。
+
+## 致谢
+
+- [若依框架](https://gitee.com/y_project/RuoYi-Vue) - 提供了优秀的后台管理框架基础
+- [Element Plus](https://element-plus.org) - 提供了丰富的Vue3组件库

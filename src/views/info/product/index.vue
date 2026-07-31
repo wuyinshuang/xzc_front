@@ -674,7 +674,7 @@ async function handleDesign() {
     if (form.maxIncome) params.maxIncome = form.maxIncome
     if (form.minHousingFund) params.minHousingFund = form.minHousingFund
     if (form.maxHousingFund) params.maxHousingFund = form.maxHousingFund
-    if (form.education && form.education.length > 0) params.education = form.education.join(',')
+    if (form.education && form.education.length > 0) params.education = form.education
     if (form.industry && form.industry.trim()) params.industry = form.industry.trim()
     if (form.region && form.region.trim()) params.region = form.region.trim()
     if (form.maritalStatus) params.maritalStatus = form.maritalStatus
