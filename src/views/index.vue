@@ -42,7 +42,7 @@
       <main class="board">
         <div class="col">
           <div class="card" style="flex:1.05">
-            <h3> vs 最优利率（按风控档位）</h3>
+            <h3>基础利率 vs 最优利率（按风控档位）</h3>
             <div class="hint">引擎一风险定价与引擎二增量利润优化对比，差值即上浮幅度</div>
             <div ref="cEngine" class="chart"></div>
           </div>
