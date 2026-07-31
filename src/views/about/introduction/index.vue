@@ -25,14 +25,14 @@
             type="primary"
             icon="Cloudy"
             plain
-            @click="goTarget('https://gitee.com/iceyWu/xzc_front')"
+            @click="goTarget('https://gitee.com/iceyWu/xzc_server')"
             >后管（后端）码云</el-button
           >
           <el-button
             type="primary"
             icon="Cloudy"
             plain
-            @click="goTarget('https://gitee.com/iceyWu/xzc_front')"
+            @click="goTarget('https://gitee.com/duanyw881028/xzc.git')"
             >模型服务码云</el-button
           >
         </p>
@@ -84,9 +84,9 @@
           <div class="body">
             <p>
               <i class="el-icon-s-promotion"></i> 作品演示：<el-link
-                href="https://www.?.com/"
+                href="http://47.101.153.130/play.html"
                 target="_blank"
-                >https://www.?.com/</el-link
+                >http://47.101.153.130/play.html/</el-link
               >
             </p>
             <p>

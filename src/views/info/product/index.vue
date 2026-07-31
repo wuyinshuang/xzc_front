@@ -70,7 +70,7 @@
         <el-row :gutter="20">
           <el-col :span="8">
             <el-form-item label="学历">
-              <el-select v-model="form.education" placeholder="请选择学历" clearable style="width: 100%;">
+              <el-select v-model="form.education" placeholder="请选择学历" clearable multiple style="width: 100%;">
                 <el-option label="高中" value="高中" />
                 <el-option label="大专" value="大专" />
                 <el-option label="本科" value="本科" />
@@ -486,7 +486,7 @@ const form = reactive({
   customerTag: '',
   minHousingFund: undefined,
   maxHousingFund: undefined,
-  education: '',
+  education: [],
   industry: '',
   region: '',
   maritalStatus: ''
@@ -674,7 +674,7 @@ async function handleDesign() {
     if (form.maxIncome) params.maxIncome = form.maxIncome
     if (form.minHousingFund) params.minHousingFund = form.minHousingFund
     if (form.maxHousingFund) params.maxHousingFund = form.maxHousingFund
-    if (form.education) params.education = form.education
+    if (form.education && form.education.length > 0) params.education = form.education.join(',')
     if (form.industry && form.industry.trim()) params.industry = form.industry.trim()
     if (form.region && form.region.trim()) params.region = form.region.trim()
     if (form.maritalStatus) params.maritalStatus = form.maritalStatus
@@ -700,7 +700,7 @@ function resetForm() {
   form.customerTag = ''
   form.minHousingFund = undefined
   form.maxHousingFund = undefined
-  form.education = ''
+  form.education = []
   form.industry = ''
   form.region = ''
   form.maritalStatus = ''

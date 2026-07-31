@@ -283,7 +283,7 @@ async function renderAll() {
     { l: '客户数', v: customerCountStr, u: '人', dt: 0 },
     { l: '平均上浮幅度', v: d.avgUplift.toFixed(2), u: '%', dt: 0 },
     { l: '平均转化概率', v: d.avgConv.toFixed(1), u: '%', dt: d.delta.conv || 0 },
-    { l: '平均增量利润', v: d.avgInc.toFixed(3), u: '%', dt: d.delta.inc || 0 },
+    { l: '平均增量利润', v: d.avgInc.toFixed(3), u: '%', dt: Math.abs(d.delta.inc || 0) },
     { l: '净收益率', v: d.netYield.toFixed(2), u: '%', dt: d.delta.net || 0 }
   ]
   kpisHtml.value = kpis.map(k => {

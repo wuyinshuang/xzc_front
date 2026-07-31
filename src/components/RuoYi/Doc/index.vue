@@ -5,9 +5,10 @@
 </template>
 
 <script setup>
-const url = ref('http://doc.ruoyi.vip/ruoyi-vue')
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 function goto() {
-  window.open(url.value)
+  router.push('/about/index/doc')
 }
 </script>
